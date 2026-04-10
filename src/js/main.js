@@ -13,10 +13,25 @@
         const themeToggle = document.getElementById('theme-toggle');
         if (!themeToggle) return;
 
+        const profileImg = document.querySelector('.hero__profile-img');
+        const defaultSrc = "public/img/Thomas_amarillo.jpeg";
+        const lightSrc = "public/img/Thomas_morado.jpeg";
+
+        const updateProfileImage = (theme) => {
+            if (!profileImg) return;
+            
+            if (theme === 'light') {
+                profileImg.src = lightSrc;
+            } else {
+                profileImg.src = defaultSrc;
+            }
+        };
+
         // Restore saved theme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
+            updateProfileImage(savedTheme);
         }
 
         themeToggle.addEventListener('click', () => {
@@ -26,6 +41,7 @@
             
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            updateProfileImage(newTheme);
         });
     };
 
