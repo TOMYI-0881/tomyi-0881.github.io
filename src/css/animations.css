@@ -1,0 +1,135 @@
+/* ========================================
+    Animations & Effects
+    ======================================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero__glow--primary {
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: var(--color-accent-glow);
+  animation: float-primary 8s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+}
+
+.hero__glow--secondary {
+  bottom: -30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(168, 85, 247, 0.3);
+  animation: float-secondary 10s ease-in-out infinite reverse, glow-pulse 5s ease-in-out infinite reverse;
+}
+
+@keyframes float-primary {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes float-secondary {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-40px) rotate(-5deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+.hero-tag__dot {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.typing-text {
+  display: inline-flex;
+  align-items: center;
+}
+
+.typing-name {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--color-accent);
+  width: 0;
+  animation: typing 4s steps(25) infinite, blink 0.8s step-end infinite;
+  animation-delay: 1s;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  40% { width: 100%; }
+  60% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero__layout > * {
+  animation: slide-up 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero__layout > *:nth-child(1) { animation-delay: 0.1s; }
+.hero__layout > *:nth-child(2) { animation-delay: 0.3s; }
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
