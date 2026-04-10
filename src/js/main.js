@@ -7,6 +7,29 @@
     'use strict';
 
     /**
+     * Theme Toggle (Light/Dark)
+     */
+    const initThemeToggle = () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        // Restore saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    };
+
+    /**
      * Intersection Observer for fade-in animations
      */
     const initScrollAnimations = () => {
@@ -120,6 +143,7 @@
      * Initialize all modules
      */
     const init = () => {
+        initThemeToggle();
         initScrollAnimations();
         initMobileMenu();
         initSmoothScroll();

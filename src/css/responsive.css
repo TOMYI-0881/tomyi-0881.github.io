@@ -2,13 +2,6 @@
     Responsive Design - Mobile First
     ======================================== */
 
-@media (max-width: 1024px) {
-  :root {
-    --space-section: 6rem;
-    --font-size-4xl: 2.5rem;
-  }
-}
-
 @media (max-width: 900px) {
   .hero__layout {
     flex-direction: column-reverse;
@@ -35,6 +28,15 @@
 
 @media (max-width: 768px) {
   :root {
+    --space-section: 5rem;
+    --font-size-4xl: 2rem;
+    --font-size-6xl: 2.5rem;
+    --space-xl: 1.5rem;
+    --space-2xl: 2rem;
+    --space-3xl: 2.5rem;
+  }
+
+  [data-theme="light"] {
     --space-section: 5rem;
     --font-size-4xl: 2rem;
     --font-size-6xl: 2.5rem;
@@ -109,6 +111,12 @@
     --font-size-3xl: 1.5rem;
   }
 
+  [data-theme="light"] {
+    --space-section: 4rem;
+    --font-size-4xl: 1.75rem;
+    --font-size-3xl: 1.5rem;
+  }
+
   .container {
     padding-inline: var(--space-md);
   }
@@ -169,6 +177,15 @@
 /* Mobile */
 @media (max-width: 768px) {
   :root {
+    --space-section: 5rem;
+    --font-size-4xl: 2rem;
+    --font-size-6xl: 2.5rem;
+    --space-xl: 1.5rem;
+    --space-2xl: 2rem;
+    --space-3xl: 2.5rem;
+  }
+
+  [data-theme="light"] {
     --space-section: 5rem;
     --font-size-4xl: 2rem;
     --font-size-6xl: 2.5rem;
@@ -244,6 +261,12 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   :root {
+    --space-section: 4rem;
+    --font-size-4xl: 1.75rem;
+    --font-size-3xl: 1.5rem;
+  }
+
+  [data-theme="light"] {
     --space-section: 4rem;
     --font-size-4xl: 1.75rem;
     --font-size-3xl: 1.5rem;
