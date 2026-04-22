@@ -9,6 +9,7 @@
     />
     <meta name="author" content="Thomas Eaton Garcia Navas" />
     <meta name="theme-color" content="#0a0a0f" />
+    <link rel="icon" type="image/png" href="public/icons/playa.png" />
     <title>Thomas Eaton Garcia Navas | Dev Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -543,7 +544,7 @@
               Estoy siempre abierto a discutir nuevos proyectos, ideas creativas
               u oportunidades de colaboracion.
             </p>
-            <a href="mailto:thomas@example.com" class="btn btn--primary">
+            <a href="#" class="btn btn--primary" id="contact-btn">
               <span>Enviar Email</span>
               <svg
                 class="btn__icon"
@@ -610,6 +611,31 @@
         <p class="footer__copyright">© 2026 Todos los derechos reservados</p>
       </div>
     </footer>
+
+    <div class="modal" id="contact-modal">
+      <div class="modal__overlay" id="modal-overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="modal-close">&times;</button>
+        <h3 class="modal__title">Contactame</h3>
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">
+            <span>Enviar</span>
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script src="src/js/main.js"></script>
   </body>

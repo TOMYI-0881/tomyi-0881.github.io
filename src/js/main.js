@@ -9,7 +9,7 @@
     /**
      * Theme Toggle (Light/Dark)
      */
-    const initThemeToggle = () => {
+const initThemeToggle = () => {
         const themeToggle = document.getElementById('theme-toggle');
         if (!themeToggle) return;
 
@@ -19,12 +19,7 @@
 
         const updateProfileImage = (theme) => {
             if (!profileImg) return;
-            
-            if (theme === 'light') {
-                profileImg.src = lightSrc;
-            } else {
-                profileImg.src = defaultSrc;
-            }
+            profileImg.src = theme === 'light' ? lightSrc : defaultSrc;
         };
 
         // Restore saved theme
@@ -156,6 +151,46 @@
     };
 
     /**
+     * Contact Modal
+     */
+    const initContactModal = () => {
+        const contactBtn = document.getElementById('contact-btn');
+        const modal = document.getElementById('contact-modal');
+        const overlay = document.getElementById('modal-overlay');
+        const closeBtn = document.getElementById('modal-close');
+        const form = document.getElementById('contact-form');
+
+        if (!contactBtn || !modal) return;
+
+        const openModal = () => modal.classList.add('active');
+        const closeModal = () => modal.classList.remove('active');
+
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const nombre = formData.get('name');
+            const email = formData.get('email');
+            const mensaje = formData.get('message');
+
+            const subject = encodeURIComponent(`Portfolio: Mensaje de ${nombre}`);
+            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`);
+            window.location.href = `mailto:gthomasenrique0884@gmail.com?subject=${subject}&body=${body}`;
+        });
+    };
+
+    /**
      * Initialize all modules
      */
     const init = () => {
@@ -164,6 +199,7 @@
         initMobileMenu();
         initSmoothScroll();
         initNavbarScroll();
+        initContactModal();
     };
 
     if (document.readyState === 'loading') {
