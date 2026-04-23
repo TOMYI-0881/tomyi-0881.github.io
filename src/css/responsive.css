@@ -64,6 +64,18 @@
 
   .mobile-menu-btn {
     display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links .theme-toggle {
+    display: flex;
+    margin: var(--space-md) 0 0 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links li:last-child {
+    margin-top: var(--space-sm);
   }
 
   .hero {
@@ -363,5 +375,36 @@
     /* --color-text-secondary: #475569; */
     /* --color-text-muted: #94a3b8; */
     /* --color-border: #e2e8f0; */
+  }
+}
+
+/* Fix card padding on mobile */
+@media (max-width: 576px) {
+  .skill-card,
+  .framework-card,
+  .database-card,
+  .project-card {
+    padding: var(--space-md);
+  }
+  
+  .skill-card__icon,
+  .framework-card__icon,
+  .database-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-dot {
+    display: none;
+  }
+  
+  body,
+  a,
+  button {
+    cursor: auto;
   }
 }

@@ -2,21 +2,51 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio profesional de Thomas Eaton Garcia Navas - Desarrollador Full Stack"
+      content="Portfolio de Thomas Eaton Garcia Navas - Desarrollador Full Stack especializado en Java, Python, JavaScript/TypeScript, React, Spring Boot y más."
     />
+    <meta name="keywords" content="desarrollador fullstack, backend, frontend, Java, Python, JavaScript, React, Spring Boot, portafolio, programador" />
     <meta name="author" content="Thomas Eaton Garcia Navas" />
-    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="sitedomain" content="tomyi-0881.github.io" />
+    <meta name="organization" content="TEGN Dev" />
+    <meta name="designer" content="Thomas Eaton Garcia Navas" />
+    <meta name="copyright" content="© 2026 Thomas Eaton Garcia Navas. Todos los derechos reservados" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta http-equiv="Content-Language" content="es" />
+    <link rel="canonical" href="https://tomyi-0881.github.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="TEGN Portfolio" />
+    <meta property="og:url" content="https://tomyi-0881.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Thomas Eaton Garcia Navas | Desarrollador Full Stack" />
+    <meta property="og:description" content="Portfolio profesional de Thomas Eaton Garcia Navas con proyectos y experiencia en desarrollo fullstack." />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:image" content="https://tomyi-0881.github.io/public/img/Thomas_amarillo.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thomas Eaton Garcia Navas | Desarrollador Full Stack" />
+    <meta name="twitter:description" content="Portfolio profesional de Thomas Eaton Garcia Navas - Desarrollador Full Stack" />
+    <meta name="twitter:image" content="https://tomyi-0881.github.io/public/img/Thomas_amarillo.jpeg" />
+    <meta name="twitter:creator" content="@TEGN_Dev" />
+    <meta name="twitter:site" content="@TEGN_Dev" />
+    <meta name="twitter:url" content="https://tomyi-0881.github.io/" />
+
     <link rel="icon" type="image/png" href="public/icons/playa.png" />
-    <title>Thomas Eaton Garcia Navas | Dev Portfolio</title>
+    <meta name="theme-color" content="#0a0a0f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <title>Thomas Eaton Garcia Navas | Desarrollador Full Stack</title>
     <link rel="stylesheet" href="src/css/base.css" />
     <link rel="stylesheet" href="src/css/utilities.css" />
     <link rel="stylesheet" href="src/css/layout.css" />
@@ -25,6 +55,9 @@
     <link rel="stylesheet" href="src/css/responsive.css" />
   </head>
   <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="toast-container" id="toast-container"></div>
     <nav class="navbar" id="navbar">
       <div class="container navbar__content">
         <a href="#inicio" class="logo">TEGN</a>
@@ -35,29 +68,40 @@
           <li><a href="#databases" class="nav-link">Bases de Datos</a></li>
           <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          <li>
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Cambiar tema"
+            >
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path
+                  d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                />
+              </svg>
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+          </li>
         </ul>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
           <span></span>
           <span></span>
           <span></span>
-        </button>
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="Cambiar tema"
-        >
-          <svg
-            class="theme-toggle__icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-            />
-          </svg>
         </button>
       </div>
     </nav>
@@ -561,10 +605,12 @@
             </a>
             <div class="social-links">
               <a
-                href="#"
+                href="https://github.com/TOMYI-0881"
                 class="social-link"
                 title="GitHub"
                 aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
@@ -573,26 +619,16 @@
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/thomas-garc%C3%ADa-navas-919472363/"
                 class="social-link"
                 title="LinkedIn"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="social-link"
-                title="Twitter"
-                aria-label="Twitter"
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                   />
                 </svg>
               </a>
@@ -637,9 +673,12 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-      (function(){
+      (function () {
         emailjs.init({
           publicKey: "kh4DEHxPQtIYbT6sY",
         });
