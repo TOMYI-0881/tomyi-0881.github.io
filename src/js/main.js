@@ -33,8 +33,8 @@
         if (!themeToggle) return;
 
         const profileImg = document.querySelector('.hero__profile-img');
-        const defaultSrc = "public/img/Thomas_amarillo.jpeg";
-        const lightSrc = "public/img/Thomas_morado.jpeg";
+        const defaultSrc = "public/img/profile/Thomas_amarillo.jpeg";
+        const lightSrc = "public/img/profile/Thomas_morado.jpeg";
 
         // Update profile image based on theme
         const updateProfileImage = (theme) => {

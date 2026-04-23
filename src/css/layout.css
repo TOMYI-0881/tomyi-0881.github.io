@@ -389,7 +389,7 @@
 /* Toast Notifications */
 .toast-container {
   position: fixed;
-  top: var(--space-xl);
+  bottom: var(--space-xl);
   right: var(--space-xl);
   z-index: 10000;
   display: flex;
