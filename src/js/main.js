@@ -151,7 +151,7 @@ const initThemeToggle = () => {
     };
 
     /**
-     * Contact Modal
+     * Contact Modal with EmailJS
      */
     const initContactModal = () => {
         const contactBtn = document.getElementById('contact-btn');
@@ -177,16 +177,61 @@ const initThemeToggle = () => {
             if (e.key === 'Escape') closeModal();
         });
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const nombre = formData.get('name');
-            const email = formData.get('email');
-            const mensaje = formData.get('message');
+        const isValidEmail = (email) => {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        };
 
-            const subject = encodeURIComponent(`Portfolio: Mensaje de ${nombre}`);
-            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`);
-            window.location.href = `mailto:gthomasenrique0884@gmail.com?subject=${subject}&body=${body}`;
+        const formatDate = () => {
+            const now = new Date();
+            return now.toLocaleString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        };
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+
+            if (!isValidEmail(email)) {
+                alert('Por favor ingresa un correo electrónico válido');
+                return;
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>Enviando...</span>';
+            submitBtn.disabled = true;
+
+            const templateParams = {
+                title: 'Nuevo mensaje desde Portfolio',
+                name: name,
+                time: formatDate(),
+                message: message,
+                reply_to: email
+            };
+
+            try {
+                await emailjs.send('service_hxv7vsh', 'template_1k5yiye', templateParams);
+                alert('¡Mensaje enviado correctamente!');
+                form.reset();
+                closeModal();
+            } catch (error) {
+                console.error('Error:', error);
+                alert(`Error al enviar: ${error.text || error.message}`);
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     };
 
